@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{/admin/header :: header}"></div>
+<body>
+	<div th:replace="~{/admin/nav :: navbar}"></div>
+	<br />
+	<br />
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 offset-md-2 ">
+				<h1 th:text="${post.title}" class="text-center"></h1>
+				<hr />
+				<h4 th:text="${post.shortDescription}"></h4>
+				<hr />
+				<div th:utext="${post.content}"></div>
+			</div>
+		</div>
+	</div>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<div th:replace="~{/admin/footer :: footer}"></div>
+</body>
+</html>

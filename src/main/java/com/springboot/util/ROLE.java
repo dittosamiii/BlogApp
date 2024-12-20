@@ -1,6 +1,5 @@
 package com.springboot.util;
 
 public enum ROLE {
-	ROLE_ADMIN, 
-	ROLE_GUEST
+	ROLE_ADMIN, ROLE_GUEST
 }

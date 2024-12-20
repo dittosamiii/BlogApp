@@ -12,16 +12,13 @@ import com.springboot.entity.User;
 import com.springboot.service.UserService;
 
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 
 @Controller
+@AllArgsConstructor
 public class AuthController {
 
 	private UserService userService;
-
-	public AuthController(UserService userService) {
-		super();
-		this.userService = userService;
-	}
 
 	// handler method to show login page
 	@GetMapping("/login")

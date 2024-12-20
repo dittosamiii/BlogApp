@@ -2,6 +2,7 @@
 <div th:replace="~{/admin/header :: header}"></div>
 <body>
 	<div th:replace="~{/admin/nav :: navbar}"></div>
+
 	<div class="container">
 		<div class="row">
 			<h1>List Blog Posts</h1>
@@ -22,17 +23,15 @@
 					<td th:text="${post.title}"></td>
 					<td th:text="${post.shortDescription}"></td>
 					<td th:text="${#temporals.format(post.createdOn, 'dd/MMM/yyyy')}"></td>
-					<td><a
-						th:href="@{/admin/posts/{postUrl}/view(postUrl = ${post.url})}"
-						class="btn btn-info">View</a> <a
-						th:href="@{/admin/posts/{postId}/edit(postId = ${post.id})}"
-						class="btn btn-success">Edit</a> <a
-						th:href="@{/admin/posts/{postId}/delete(postId = ${post.id})}"
-						class="btn btn-danger">Delete</a></td>
+					<td>
+						<a th:href="@{/admin/posts/{postUrl}/view(postUrl = ${post.url})}" class="btn btn-info">View</a>
+						<a th:href="@{/admin/posts/{postId}/edit(postId = ${post.id})}" class="btn btn-success">Edit</a>
+						<a th:href="@{/admin/posts/{postId}/delete(postId = ${post.id})}" class="btn btn-danger">Delete</a>
+					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
-	<div th:replace="~{/admin/footer :: footer}"></div>
+<div th:replace="~{/admin/footer :: footer}"></div>
 </body>
 </html>

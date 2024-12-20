@@ -12,14 +12,12 @@ import com.springboot.dto.CommentDto;
 import com.springboot.dto.PostDto;
 import com.springboot.service.PostService;
 
+import lombok.AllArgsConstructor;
+
 @Controller
+@AllArgsConstructor
 public class BlogController {
 	private PostService postService;
-
-	public BlogController(PostService postService) {
-		super();
-		this.postService = postService;
-	}
 
 	// handler method to handle http://localhost:8080/
 	@GetMapping("/")
@@ -43,7 +41,11 @@ public class BlogController {
 	@GetMapping("/posts/search")
 	public String searchPosts(@RequestParam String query, Model model) {
 		List<PostDto> posts = postService.searchPosts(query);
+		if (posts.isEmpty()) {
+			return "/blog/no_post";
+		}
 		model.addAttribute("posts", posts);
 		return "/blog/view_posts";
 	}
+
 }

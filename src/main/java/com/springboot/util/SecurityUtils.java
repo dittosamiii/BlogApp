@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.User;
 public class SecurityUtils {
 	public static User getLoggedInUserDetails() {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		if (principal instanceof User) {
+		if (principal != null) {
 			return (User) principal;
 		}
 		return null;
@@ -22,5 +22,6 @@ public class SecurityUtils {
 			return authority.getAuthority();
 		}
 		return null;
+
 	}
 }

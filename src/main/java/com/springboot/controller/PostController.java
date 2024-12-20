@@ -19,17 +19,13 @@ import com.springboot.util.ROLE;
 import com.springboot.util.SecurityUtils;
 
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 
 @Controller
+@AllArgsConstructor
 public class PostController {
 	private PostService postService;
 	private CommentService commentService;
-
-	public PostController(PostService postService, CommentService commentService) {
-		super();
-		this.postService = postService;
-		this.commentService = commentService;
-	}
 
 	// handler method to handle the posts request
 	@GetMapping("/admin/posts")
@@ -92,6 +88,7 @@ public class PostController {
 	public String deletePost(@PathVariable("postId") Long postDtoId) {
 		postService.deletePostById(postDtoId);
 		return "redirect:/admin/posts";
+
 	}
 
 	// handler method to handle view post request
@@ -100,6 +97,7 @@ public class PostController {
 		PostDto postDto = postService.findPostByUrl(postUrl);
 		model.addAttribute("post", postDto);
 		return "/admin/view_post";
+
 	}
 
 	// handler method to handle search request
@@ -108,6 +106,7 @@ public class PostController {
 		List<PostDto> posts = postService.searchPosts(query);
 		model.addAttribute("posts", posts);
 		return "/admin/posts";
+
 	}
 
 	// handler method to handle comments

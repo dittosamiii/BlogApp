@@ -13,18 +13,14 @@ import com.springboot.service.CommentService;
 import com.springboot.service.PostService;
 
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 
 @Controller
+@AllArgsConstructor
 public class CommentController {
 
 	private CommentService commentService;
 	private PostService postService;
-
-	public CommentController(CommentService commentService, PostService postService) {
-		super();
-		this.commentService = commentService;
-		this.postService = postService;
-	}
 
 	// handler method to save the comment
 	@PostMapping("/{postUrl}/comments")
